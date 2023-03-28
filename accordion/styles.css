@@ -1,0 +1,19 @@
+.accordion {
+    margin-bottom: 8px;
+}
+
+.accordion__header {
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.accordion__body {
+    max-height: 0;
+    padding-left: 12px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.accordion.is-active .accordion__header {
+    background-color: lightgray;
+}
