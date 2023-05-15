@@ -1,0 +1,22 @@
+{
+  "name": "otus-blank-js-starter",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "keywords": [
+    "otus"
+  ],
+  "author": "OTUS",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "parcel": "^2.8.3"
+  }
+}
