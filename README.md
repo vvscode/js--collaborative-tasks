@@ -13,3 +13,6 @@ Whenever you add a new task:
 1) create a new branch with self descriptive name (example - `context-custom-bind`)
 2) push branch and all related changes to the repo
 3) make a PR and in PR description describe details for the task (what is the goal, instructions)
+
+
+<!-- Add index of templates -->
