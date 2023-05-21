@@ -1,0 +1,15 @@
+{
+  "name": "js-css-plugins-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "serve": "serve"
+  },
+  "keywords": [],
+  "author": "Ilya Obolenskiy",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
