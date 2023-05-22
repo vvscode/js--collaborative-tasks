@@ -1,29 +1,40 @@
-import { template } from "./template";
+import { State } from "./reducer";
+import { store } from "./store";
+import * as actions from "./actions";
+import { getTodos } from "./api";
 
-document.getElementById("app").innerHTML = template(
-  `<p>My name is {{NAME}}. And my friend are:</p>
-<ul>
-{{for friends}}<li>{{NAME}}, {{AGE}} y.o.</li>{{endfor}}
-</ul>
-`,
-  {
-    NAME: "Bob",
-    friends: [
-      {
-        NAME: "Sam",
-        AGE: "21",
-      },
-      {
-        NAME: "Alice",
-        AGE: 23,
-      },
-    ],
+const el = document.querySelector("#app") as HTMLElement;
+
+type RenderData = {
+  isLoading: boolean;
+  data: any | undefined;
+  error: Error | undefined;
+};
+
+async function loadData() {
+  // put your code here
+  console.log('Put your code here')
+}
+
+const render = (props: RenderData) => {
+  if (props.isLoading) {
+    return (el.innerHTML = "Loading....");
   }
-);
+  if (props.error) {
+    return (el.innerHTML = `<h1 style="color: red">${props.error.message}</h1>`);
+  }
+  if (props.data) {
+    return (el.innerHTML = `<pre>${JSON.stringify(props.data, null, 2)}</pre>`);
+  }
+  el.innerHTML = `<button>Load data</button>`;
+  el.querySelector("button")?.addEventListener("click", loadData);
+};
 
-/*
-<p>My name is Bob. And my friend are:</p>
-<ul>
-<li>Sam, 21 y.o.</li><li>Alice, 23 y.o.</li>
-</ul>
-*/
+const selectData = (state: State): RenderData => ({
+  isLoading: state.isLoading,
+  data: state.data,
+  error: state.error,
+});
+
+render(selectData(store.getState()));
+store.subscribe(() => render(selectData(store.getState())));
